@@ -36,21 +36,10 @@ class StaticArray:
       print(f'{i}: ', self.data[i])
     return # O(n)
 
-  """ TO DO: write pseducode about it
+  #TO DO: write pseducode about it
   # delete an item of the array
-  def delete(self, item):
-    i: self.data_type = 0
-    # loop through the array
-    for i in range(self.length):
-      # found the item
-      if self.data[i] == item:
-        print('element found at index ', self.get_value_at(i))
-        location: int = i
+  # def delete(self, item):
     
-    self.length -= 1
-
-    return self.length
-  """
 
 
 # creating static array of 5 spaces
@@ -58,7 +47,12 @@ arr = StaticArray(5)
 arr.push(1)
 arr.push(3)
 
-try:
-  arr.get_value_at(5)
-except:
-  print('bug')
+# trying to stop the loop using a try & except
+for i in range(7):
+  try:
+    var = arr.get_value_at(i)
+    if var != None:
+      print(var)
+  except:
+    print('out of range')
+    break
