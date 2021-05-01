@@ -30,12 +30,18 @@ class StaticArray:
     return self.data[index] # O(1)
 
   def push(self, item):
-    if (self.length + 1 <= self.max):
+    ret_length: int # cointains the updated length of the array to return,
+                    # used to not make the code spaghetti like
+    if (type(item) != self.data_type):
+      ret_length = self.length
+    elif (self.length + 1 <= self.max):
       self.data[self.length] = item
       self.length += 1
+      ret_length = self.length
     else:
       print('sorry, index out of range')
-    return self.length # O(1)
+      ret_length = self.length
+    return ret_length # O(1)
 
   def pop(self):
     last_item: self.data_type = self.data[self.length - 1]
@@ -49,13 +55,13 @@ class StaticArray:
     i: int = 0
     for i in range(self.length):
       print(f'{i}: ', self.data[i])
-    return # O(n)
+    return self.length # O(n)
 
   def view_complete_array(self):
     i: int = 0
     for i in range(self.max):
       print(f'{i}: ', self.data[i])
-    return # O(n)
+    return self.length # O(n)
 
   # delete an item of the array
   def delete(self, item):
@@ -75,15 +81,15 @@ class StaticArray:
 
     return self.length # O(n)
 
-
 # creating static array of 5 spaces
 arr = StaticArray(int, 5)
 arr.push(10)
 arr.push(20)
-arr.push(30)
-arr.push(40)
-arr.push(50)
-arr.push(60)
 
+s = 'si'
 
-arr.view_complete_array()
+def reverse_string(s, length):
+  for i in range(length , 0, -1):
+    print(s[i])
+
+reverse_string(s, 3)
