@@ -1,2 +1,5 @@
 language = "undefined"
-run = "python static_array.py"
+run = "python Python/static_array.py"
+
+
+
