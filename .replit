@@ -1,5 +1,5 @@
 language = "undefined"
-run = "g++ C++/reverse_string.cpp; ./a.out"
+run = "python Python/reverse_string.py"
 
 
 
