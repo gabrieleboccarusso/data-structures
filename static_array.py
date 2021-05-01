@@ -1,7 +1,24 @@
 class StaticArray:
-  def __init__(self, max):
+  """
+  attributes:
+    data_type: data type of the static array
+    lenght: lenght of the array, initially zero 
+    max: max length of the array
+    data: effectivate storage of the data
+  
+  methods:
+    get_value_at(): return the item at a given index
+      ex: array[10, 20, 30]
+      var = arr.get_value_at(0)
+      now var equals 10
+    push(): push a new item at the end of the array
+    pop(): delete last item of the array
+    view_array(): print all the items of the array beginning from 0
+    view_complete_array(): same as 'view_array()', but prints even      void indexes of the array, useful for debug
+  """
+  def __init__(self, data_type, max):
     # it will be by default an array of integers
-    self.data_type = int
+    self.data_type = data_type
     # lenght of the array
     self.length: int = 0
     # max size of the array
@@ -9,18 +26,17 @@ class StaticArray:
     # store the values
     self.data = [None] * max
 
-  # get the value at a precise index
   def get_value_at(self, index):
     return self.data[index] # O(1)
 
-  # add an item at the end of the array
   def push(self, item):
-    self.data[self.length] = item
-    self.length += 1
+    if (self.length + 1 <= self.max):
+      self.data[self.length] = item
+      self.length += 1
+    else:
+      print('sorry, index out of range')
     return self.length # O(1)
-    # TO DO: list assignment out of range, debug
 
-  # delete last element of the array
   def pop(self):
     last_item: self.data_type = self.data[self.length - 1]
     self.length -= 1 
@@ -29,30 +45,45 @@ class StaticArray:
     self.data[self.length] = None
     return last_item # O(1)
 
-  # show all the elements of the array
   def view_array(self):
     i: int = 0
     for i in range(self.length):
       print(f'{i}: ', self.data[i])
     return # O(n)
 
-  #TO DO: write pseducode about it
+  def view_complete_array(self):
+    i: int = 0
+    for i in range(self.max):
+      print(f'{i}: ', self.data[i])
+    return # O(n)
+
   # delete an item of the array
-  # def delete(self, item):
-    
+  def delete(self, item):
+    # finding the item index
+    item_index: int = 0
+    for i in range(self.length):
+      if self.data[i] == item:
+        #print(f'{arr.data[i]} is at index of {i}')
+        item_index = i
+
+    # changing the array
+    for i in range(item_index, self.length - 1):
+      self.data[i] = self.data[i + 1]
+
+    self.data[self.length - 1] = None
+    self.length -= 1
+
+    return self.length # O(n)
 
 
 # creating static array of 5 spaces
-arr = StaticArray(5)
-arr.push(1)
-arr.push(3)
+arr = StaticArray(int, 5)
+arr.push(10)
+arr.push(20)
+arr.push(30)
+arr.push(40)
+arr.push(50)
+arr.push(60)
 
-# trying to stop the loop using a try & except
-for i in range(7):
-  try:
-    var = arr.get_value_at(i)
-    if var != None:
-      print(var)
-  except:
-    print('out of range')
-    break
+
+arr.view_complete_array()
