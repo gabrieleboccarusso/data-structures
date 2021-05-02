@@ -15,6 +15,7 @@ class StaticArray:
     pop(): delete last item of the array
     view_array(): print all the items of the array beginning from 0
     view_complete_array(): same as 'view_array()', but prints even      void indexes of the array, useful for debug
+    reverse_array(): reverse a given array and returns a copy of it
   """
   def __init__(self, data_type, max):
     # it will be by default an array of integers
@@ -81,15 +82,32 @@ class StaticArray:
 
     return self.length # O(n)
 
+  def reverse_array (self, given_array):
+    ret_arr = StaticArray(given_array.data_type, given_array.length)
+
+    i: int = 0
+    for i in range(given_array.length -1, -1, -1):
+      ret_arr.push(given_array.data[i])
+
+    return ret_arr
+
 # creating static array of 5 spaces
 arr = StaticArray(int, 5)
-arr.push(10)
-arr.push(20)
+arr.push(11)
+arr.push(22)
+arr.push(33)
+arr.push(44)
+arr.push(55)
 
-s = 'si'
+print('before reversing:')
+arr.view_array()
+arr = arr.reverse_array(arr)
+print('after reversing:')
+arr.view_array()
 
-def reverse_string(s, length):
-  for i in range(length , 0, -1):
-    print(s[i])
 
-reverse_string(s, 3)
+
+
+
+
+
