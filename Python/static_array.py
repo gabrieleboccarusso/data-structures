@@ -91,20 +91,50 @@ class StaticArray:
 
     return ret_arr
 
+  def merge_two_arrays(self, array_1, array_2):
+    size_ret_arr = array_1.length + array_2.length
+    dtype_ret_arr = array_1.data_type
+    ret_arr = StaticArray(dtype_ret_arr, size_ret_arr)
+    
+    i:int = 0
+    for i in range(array_1.length):
+      ret_arr.push(array_1.data[i])
+
+    for i in range(array_2.length):
+      ret_arr.push(array_2.data[i])
+    """
+    we could merge more then two array taking as argument
+    an array of arrays, but we should do:
+    for i in range(size_array_of_array):
+      for j in range(arr[i].lenght):
+        ret_arr.push(arr[i].data[j])
+    which is O(n^2)
+    """
+
+    """
+    we could sort the arrays while merging, but that method is too
+    complicated and not efficient, I think is better sort them all together for then sort the merged array.
+    The section about sorting algos is at the end of the course,
+    so not using the pre-buil python method is a TO DO
+    """
+    # ret_arr.data.sort()
+    return ret_arr
+
 # creating static array of 5 spaces
 arr = StaticArray(int, 5)
 arr.push(11)
-arr.push(22)
+arr.push(99)
 arr.push(33)
 arr.push(44)
 arr.push(55)
 
-print('before reversing:')
-arr.view_array()
-arr = arr.reverse_array(arr)
-print('after reversing:')
-arr.view_array()
+arr2 = StaticArray(int, 2)
+arr2.push(66)
+arr2.push(77)
 
+merged_arr = arr.merge_two_arrays(arr, arr2)
+
+merged_arr.view_array()
 
 
 
