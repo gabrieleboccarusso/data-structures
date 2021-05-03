@@ -113,17 +113,41 @@ class static_array
       return;
     }
 
+    void merge_with(static_array arr)
+    // note: this works only with classes with the same
+    // type and size:
+    // static_array<int, 5> arr;
+    // static_array<int, 4> arr2;
+    // will not work
+    // static_array<int, 5> arr;
+    // static_array<int, 5> arr2;
+    // will work
+    {
+      int i;
+
+      for (i = 0; i < arr.length; i++)
+      {
+        push(arr.get_value_at(i));
+      }
+
+      return;
+    }
+
 };
 
 int main()
 {
   static_array<int, 5> arr;
+  static_array<int, 5> arr2;
 
   arr.push(11);
   arr.push(22);
   arr.push(33);
 
-  arr.reverse_array();
+  arr2.push(44);
+  arr2.push(55);
+
+  arr.merge_with(arr2);
 
   arr.view_array();
 
