@@ -12,13 +12,13 @@ class static_array
   - dtype: data type of the array
   - max: max size of the array
   - data: effectivate data of the static array
-
   Methods:
   - push(): push a new item at the end of the array
   - get_value_at(): return an item at a given index of the array
   - view_array(): view all the elements of the array
   - pop(): delete the last item of the array
   - reverse_array(): reverse the array itself, takes no arguments
+  - void_array(): void the array
   */
   public:
     int length = 0;
@@ -88,11 +88,7 @@ class static_array
         dummy_arr[i] = data[i];
       }
 
-      // TO DO: make function that void the array
-      for (i = 0; i < length_arr; i++)
-      {
-        pop();
-      }
+      void_array();
 
       // pushing all the the values of the dummy array
       // into the now voided original
@@ -102,6 +98,19 @@ class static_array
       }
 
       return; // O(n)
+    }
+
+    void void_array()
+    {
+      int length_arr = length;
+      int i;
+
+      for (i = 0; i < length_arr; i++)
+      {
+        pop();
+      }
+
+      return;
     }
 
 };
