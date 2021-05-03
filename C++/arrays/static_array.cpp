@@ -17,6 +17,8 @@ class static_array
   - push(): push a new item at the end of the array
   - get_value_at(): return an item at a given index of the array
   - view_array(): view all the elements of the array
+  - pop(): delete the last item of the array
+  - reverse_array(): reverse the array itself, takes no arguments
   */
   public:
     int length = 0;
@@ -52,13 +54,6 @@ class static_array
     }
     // END *get_value_at*
 
-    /*
-      def view_array(self):
-    i: int = 0
-    for i in range(self.length):
-      print(f'{i}: ', self.data[i])
-    return self.length # O(n)
-    */
     void view_array()
     {
       int i;
@@ -69,18 +64,59 @@ class static_array
 
       return;
     }
+
+    dtype pop()
+    {
+      dtype item = data[length - 1];
+      length--;
+
+      data[length] = '\0';
+
+      return item;
+    }
+
+    void reverse_array()
+    {
+      int length_arr = length;
+      dtype dummy_arr[length_arr];
+      int i; 
+      // view_array();
+
+      // creating dummy array
+      for (i = 0; i < length_arr; i++)
+      {
+        dummy_arr[i] = data[i];
+      }
+
+      // TO DO: make function that void the array
+      for (i = 0; i < length_arr; i++)
+      {
+        pop();
+      }
+
+      // pushing all the the values of the dummy array
+      // into the now voided original
+      for (i = length_arr -1; i >= 0; i--)
+      {
+        push(dummy_arr[i]);
+      }
+
+      return; // O(n)
+    }
+
 };
 
 int main()
 {
   static_array<int, 5> arr;
 
-  // cout << arr.length << endl;
-
   arr.push(11);
   arr.push(22);
+  arr.push(33);
+
+  arr.reverse_array();
 
   arr.view_array();
- 
-  return 0;
+
+ return 0;
 }
