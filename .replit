@@ -1,5 +1,5 @@
 language = "undefined"
-run = "g++ C++/arrays/static_array.cpp; ./a.out"
+run = "g++ C++/arrays/dynamic_array.cpp; ./a.out"
 
 
 
