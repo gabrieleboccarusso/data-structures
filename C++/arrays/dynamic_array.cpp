@@ -11,7 +11,7 @@ class dynamic_array
     int length = 0;
     dtype * data = new dtype [max]; // we begin with just one space
 
-  void push(dtype item) 
+  int push(dtype item) 
   {
     if (length + 1 <= max)
     {
@@ -24,6 +24,7 @@ class dynamic_array
       push(item);
     }
 
+    return length;
   }
 
   void double_spaces()
