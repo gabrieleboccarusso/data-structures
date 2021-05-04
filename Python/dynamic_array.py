@@ -1,4 +1,4 @@
-class StaticArray:
+class dynamic_array:
   """
   attributes:
     data_type: data type of the static array
@@ -23,7 +23,7 @@ class StaticArray:
     # lenght of the array
     self.length: int = 0
     # max size of the array
-    self.max:int = 1
+    self.max = 1
     # store the values
     self.data = [None] * max
 
@@ -121,7 +121,20 @@ class StaticArray:
     return ret_arr
 
 # creating static array of 5 spaces
-arr = StaticArray(int)
+arr = StaticArray(int, 5)
+arr.push(11)
+arr.push(99)
+arr.push(33)
+arr.push(44)
+arr.push(55)
+
+arr2 = StaticArray(int, 2)
+arr2.push(66)
+arr2.push(77)
+
+merged_arr = arr.merge_two_arrays(arr, arr2)
+
+merged_arr.view_array()
 
 
 
