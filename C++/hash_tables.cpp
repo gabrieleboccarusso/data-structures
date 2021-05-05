@@ -1,42 +1,34 @@
 #include <iostream>
 
 using std::cout;
-using std::endl;
-using std::cin;
 
-// to create an hash table we have to first
-// store somewhere the key and the value
-template <class dtype_key, class dtype_val>
-struct hash_obj {
-  dtype_key key;
-  dtype_val value;
-};
-
-template <class dtype_key, class dtype_value>
-class hash_table 
+class hash_table
 {
-  public:
-    int data [10];
 
-  void hashing (dtype_key key)
-  {
-    int i;
-    int code = 0;
-    for (i = 0; i < key[i]; i++)
-    {
-      cout << key[i];
-      code = code + i + 1;
-    }
+}
 
-    cout << code;
-  }
-};
-
-int main() 
+int main()
 {
-  hash_table<char[10], int> my_hash;
-  char name [10] = {"qwerrt"};
-  my_hash.hashing(name);
+  char key[10] = "giovanni";
+  cout << hash(key);
 
   return 0;
 }
+
+/*
+hash function
+int hash (char key [10])
+{
+  int hash = 0;
+  int i;
+
+  for (i = 0; i < 10; i++)
+  {
+    hash = hash + key[i] * i;
+  }
+
+  hash = hash % 10;
+
+  return hash;
+} 
+*/
