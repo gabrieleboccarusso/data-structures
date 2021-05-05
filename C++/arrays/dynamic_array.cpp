@@ -27,7 +27,7 @@ class dynamic_array
     return length;
   }
 
-  void double_spaces()
+  int double_spaces()
   {
     dtype dummy_arr[max];
     int i;
@@ -37,13 +37,9 @@ class dynamic_array
       dummy_arr[i] = data[i];
     }
 
-    // strangely enough, deleting the data
-    // was resulting in an error, I'll still keep the
-    // line, commented out, for any possible problem
-    // with data that should have been deleted
-    //delete [] data;
+    delete [] data;
     max = max * 2;
-    dtype * data = new int [max];
+    data = new dtype [max];
     // cout << "doubling spaces...\n";
     for (i = 0; i < length; i++)
     {
@@ -51,31 +47,34 @@ class dynamic_array
       //cout << data[i] << "\n";
     }
 
+    return max;
+  }
+
+  void view_array()
+  {
+    int i;
+    for (i = 0; i < length; i++)
+    {
+      cout << i << ": " << data[i] << endl;
+    }
+
+    return;
   }
 };
 
 int main() 
 { 
-  dynamic_array<int> class_arr;
+  dynamic_array<float> arr;
 
-  class_arr.push(11);
-  class_arr.push(22);
-  class_arr.push(33);
-  class_arr.push(44);
-  class_arr.push(55);
-  class_arr.push(66);
-  class_arr.push(77);
-  class_arr.push(88);
-  class_arr.push(99);
-
-
+  arr.push(1.1);
+  arr.push(2.2);
+  arr.push(3.3);
+  arr.push(4.4);
+  arr.push(5.5);
   
-  cout << "length now: " << class_arr.length << endl;
-  for (int i; i < class_arr.length; i++)
-  {
-    cout << i << ": " << class_arr.data[i] << endl;
-  }
-  cout << "max: " << class_arr.max;
+  cout << "length now: " << arr.length << endl;
+  arr.view_array();
+  cout << "max: " << arr.max;
   
   return 0;
 }

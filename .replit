@@ -1,5 +1,5 @@
 language = "undefined"
-run = "python Python/dynamic_array.py"
+run = "g++ C++/arrays/dynamic_array.cpp; ./a.out"
 
 
 
