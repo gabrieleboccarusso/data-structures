@@ -1,6 +1,8 @@
 #include <iostream>
 
 using std::cout;
+using std::cin;
+using std::endl;
 
 template <class dtype_val>
 struct hash_value {
@@ -44,19 +46,49 @@ class hash_table
       return;
     }
 
-  
+    val_type get(char *key)
+    {
+      int index = hashing(key);
+      return data[index].val;
+    }
+
 };
 
 int main()
 {
   hash_table<int, 10> table;
+  char key [10]; // used to get or set an item;
+  int value; // value to set
+  char choice = 'y'; // used to choose what to do
+  while (choice != 'n')
+  {
+    cout << "enter 1 to put something in the associative array" << endl;
+    cout << "enter 2 to get a value from the array" << endl;
+    cout << "enter \"n\" to exit the program" << endl;
+    cin >> choice;
 
-  char k [10] = "gabriele";
+    switch (choice)
+    {
+      case '1':
+        cout << "enter key to set: ";
+        cin >> key;
+        cout << "enter the value: ";
+        cin >> value;
+        table.set(key, value);
+        break;
+      case '2':
+        cout << "enter key to search: ";
+        cin >> key;
+        cout << table.get(key);
+        break;
+      case 'n':
+        cout << "goodbye";
+        break;
+      default:
+      cout << "I don't get it" << endl;
+    }
 
-
-  table.set(k, 10);
-
-  cout << table.data[5].val;
+  }
   return 0;
 }
 
