@@ -9,7 +9,7 @@ As IDE I am using [replit](https://replit.com), where i have to  change the `run
 * C++: `g++ <name>.cpp ; ./a.out`
 * JavaScript: `node <name>.js`
 
-## Documentation
+## Short Documentation
 
 ### Arrays
 
@@ -33,3 +33,19 @@ Currently available in:
   - [ ] Dynamic array
 
   Note: almost all of the methods for the dynamic arrays are not present because they would be just a copy and paste of the methods for the static one
+
+### Hash tables
+In everyone of the dedicated folder there is a sub-folder named "hash_tables" with inside:
+* Implementation of the hash table from scratch
+* first recurring character 
+
+Currently available in:
+- [X] C++
+  - [X] hash table
+  - [X] first recurring character
+- [ ] Python
+  - [ ] hash table
+  - [ ] first recurring character
+- [ ] JavaScript
+  - [ ] hash table
+  - [ ] first recurring character

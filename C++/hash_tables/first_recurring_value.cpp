@@ -7,6 +7,7 @@
 
 //Given an array = [2,3,4,5]:
 //It should return undefined
+
 #include <iostream>
 #include <map>
 
