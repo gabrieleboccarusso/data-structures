@@ -73,6 +73,18 @@ class list
       return length;
     }
 
+    void view_list()
+    {
+      node *ptr = ptail;
+      int i;
+
+      for (i = 0; i < length; i++)
+      {
+        cout << i << ": " << ptr -> data << endl;
+        ptr = ptr -> next;
+      }
+    }
+
 
 };
 
@@ -82,19 +94,8 @@ int main()
   my_list.append(15);
   my_list.append(20);
   my_list.prepend(5);
-  node * n  = my_list.get_head();
-
-  cout << "before preprend: " << endl;
-  cout << "head data: " << n -> data << endl;
-  n = my_list.get_tail();
-  cout << "tail data: " << n -> data << endl;
-  n = n -> next;
-  cout << "data after tail: " << n -> data << endl;
-  cout << "length: " << my_list.get_length() << endl;
-
   
-
-
+  my_list.view_list();
 
   return 0;
 }
