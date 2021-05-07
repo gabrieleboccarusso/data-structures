@@ -1,5 +1,5 @@
 language = "undefined"
-run = "g++ C++/hash_tables/first_recurring_value.cpp; ./a.out"
+run = "g++ C++/linked_list.cpp; ./a.out"
 
 
 
