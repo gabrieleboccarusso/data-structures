@@ -3,13 +3,6 @@
 using std::cout;
 using std::endl;
 
-/* note:
-  node n, n2;
-  n.ptr = &n2;
-  n2.data = 10;
-  cout << n.ptr->data; // 10
-*/
-
 struct node
 {
   int data;
@@ -26,13 +19,10 @@ class list
   public:
     // constructor
     list(int data) 
-    { // the constructor create the first node
+    {
        node * temp = new node;
        temp -> data = data;
-       //cout << temp->data;
-       //temp -> next = nullptr;
        ptail = temp;
-       //cout << ptail->data;
        phead = temp;
     }
 
