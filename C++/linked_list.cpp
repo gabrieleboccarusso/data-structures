@@ -87,19 +87,36 @@ class list
 
     void insert(int index, int value)
     {
-      node * ptr = ptail;
+      node * ptr = get_value_at(index - 1);
       node * temp = new node;
-      int i;
-      for (i = 0; i < index-1; i++)
-      {
-        ptr = ptr -> next;
-      }
       temp-> next = ptr -> next;
       temp -> data = value;
       ptr -> next = temp;
       length++;
 
       return;
+    }
+
+    node * get_value_at(int index)
+    {
+      node * ptr = ptail;
+      int i;
+      for (i = 0; i < index; i++)
+      {
+        ptr = ptr -> next;
+      }
+
+      return ptr;
+    }
+
+    int remove(int index)
+    {
+      node * ptr = get_value_at(index - 1);
+      node * node_to_delete = ptr -> next;
+      ptr -> next = ptr -> next -> next;
+      delete node_to_delete;
+      length--;
+      return length;
     }
 
 
@@ -111,11 +128,12 @@ int main()
   my_list.append(15);
   my_list.append(20);
   my_list.prepend(5);
-  
-  my_list.insert(1, 7);
-  my_list.insert(4, 18);
+
   my_list.view_list();
-  cout << "length: " << my_list.get_length();
+  //cout << "length: " << my_list.get_length() << endl;
+  cout << "deleted 1: \n";
+  my_list.remove(1);
+  my_list.view_list();
 
   return 0;
 }
