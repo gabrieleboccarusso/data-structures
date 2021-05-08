@@ -22,7 +22,6 @@ class list
     node * ptail;
     node * phead;
     int length = 1;
-    //cout << my_list.ptail -> data;
 
   public:
     // constructor
