@@ -99,11 +99,11 @@ class list
 
     void reverse()
     {
-      node * prev = NULL;
       node * current = phead;
+      node * prev = NULL;
       node * next = NULL;
-
-      while (current != NULL)
+      
+      while(current != NULL)
       {
         next = current -> next;
         current -> next = prev;

@@ -1,5 +1,5 @@
 language = "undefined"
-run = "g++ C++/linked_lists/singly_linked_list.cpp; ./a.out"
+run = "g++ C++/stacks/linked_stack.cpp; ./a.out"
 
 
 
