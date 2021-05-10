@@ -35,9 +35,9 @@ class list
     void append(int value)
     {
       node * temp = new node;
-      phead -> next = temp;
+      ptail -> next = temp;
       temp -> data = value;
-      phead = temp;
+      ptail = temp;
       length++;
       return;
     }
@@ -46,8 +46,8 @@ class list
     {
       node * temp = new node;
       temp -> data = value;
-      temp -> next =ptail;
-      ptail = temp;
+      temp -> next = phead;
+      phead = temp;
       length++;
       return;
     }
@@ -64,26 +64,15 @@ class list
 
     void view_list()
     {
-      node *ptr = ptail;
+      node *ptr = phead;
       int i;
 
+      // a for is better than while(ptr != NULL)
       for (i = 0; i < length; i++)
       {
         cout << i << ": " << ptr -> data << endl;
         ptr = ptr -> next;
       }
-    }
-
-    void insert(int index, int value)
-    {
-      node * ptr = get_value_at(index - 1);
-      node * temp = new node;
-      temp-> next = ptr -> next;
-      temp -> data = value;
-      ptr -> next = temp;
-      length++;
-
-      return;
     }
 
     node * get_value_at(int index)
@@ -108,6 +97,24 @@ class list
       return length;
     }
 
+    void reverse()
+    {
+      node * prev = NULL;
+      node * current = phead;
+      node * next = NULL;
+
+      while (current != NULL)
+      {
+        next = current -> next;
+        current -> next = prev;
+        prev = current;
+        current = next;
+      }
+
+      phead = prev;
+    }
+
+
 
 };
 
@@ -117,11 +124,7 @@ int main()
   my_list.append(15);
   my_list.append(20);
   my_list.prepend(5);
-
-  my_list.view_list();
-  //cout << "length: " << my_list.get_length() << endl;
-  cout << "deleted 1: \n";
-  my_list.remove(1);
+  my_list.reverse();
   my_list.view_list();
 
   return 0;
