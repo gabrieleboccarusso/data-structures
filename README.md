@@ -74,8 +74,8 @@ In everyone of the dedicated folder there is a sub-folder named "stacks" with in
 
 - [ ] C++
   - [X] linked stack
-  - [ ] static stack
-  - [ ] dynamic stack
+  - [X] static stack
+  - [X] dynamic stack
 - [ ] Python
   - [ ] linked stack
   - [ ] static stack
