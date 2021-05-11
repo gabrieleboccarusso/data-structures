@@ -49,3 +49,38 @@ Currently available in:
 - [ ] JavaScript
   - [ ] hash table
   - [ ] first recurring character
+
+### Linked lists
+In everyone of the dedicated folder there is a sub-folder named "Linked_lists" with inside:
+* singly linked list
+* doubly linked list
+
+Currently available in:
+- [X] C++
+  - [X] singly linked list
+  - [X] doubly linked list
+- [ ] Python
+  - [ ] singly linked list
+  - [ ] doubly linked list
+- [ ] JavaScript
+  - [ ] singly linked list
+  - [ ] doubly linked list
+
+### stacks
+In everyone of the dedicated folder there is a sub-folder named "stacks" with inside:
+* linked stacks (a stack Implemented with pointer)
+* static stacks (a stack Implemented with an array)
+* dynamic stacks (a stack Implemented with an array that double its size when at end)
+
+- [ ] C++
+  - [X] linked stack
+  - [ ] static stack
+  - [ ] dynamic stack
+- [ ] Python
+  - [ ] linked stack
+  - [ ] static stack
+  - [ ] dynamic stack
+- [ ] JavaScript
+  - [ ] linked stack
+  - [ ] static stack
+  - [ ] dynamic stack
