@@ -11,8 +11,8 @@ class linked_stack
       dtype data;
       node * previous = NULL;
     };
-    node * ptop; // pointer to the top
-    node * pbottom; // pointer to the bottom
+    node * ptop = NULL; // pointer to the top
+    node * pbottom = NULL; // pointer to the bottom
     int length = 0;
 
   public:
@@ -23,7 +23,6 @@ class linked_stack
       temp -> data = set_data;
       ptop = temp;
       pbottom = temp;
-      pbottom -> previous = NULL;
       length++;
     }
 
@@ -75,6 +74,11 @@ class linked_stack
       ptop = ptop -> previous;
       delete to_delete;
       length--;
+      if (length == 0)
+      {
+        pbottom = NULL;
+        ptop= NULL;
+      }
 
       return length;
     }
@@ -82,6 +86,9 @@ class linked_stack
     bool isEmpty()
     {
       bool answer = false;
+      
+      if(ptop == NULL && pbottom == NULL)
+        answer = true;
 
       return answer;
     }
