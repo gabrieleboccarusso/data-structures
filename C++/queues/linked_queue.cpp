@@ -46,6 +46,16 @@ class linked_queue
       return length;
     }
 
+    int dequeue()
+    {
+      node * item_after_first = pfirst -> next;
+      delete pfirst;
+      pfirst = item_after_first;
+      length--;
+
+      return length;
+    }
+
     void view_queue()
     {
       node * temp = pfirst;
@@ -61,10 +71,15 @@ class linked_queue
 
 int main()
 {
-  linked_queue<int> my_queue (10);
-  my_queue.enqueue(15);
+  linked_queue<std::string> my_queue ("primo");
+  my_queue.enqueue("secondo");
+  my_queue.enqueue("terzo");
   cout << "the queue:\n";
   my_queue.view_queue();
   cout << "now enqueued:\n";
+  my_queue.dequeue();
+  my_queue.dequeue();
+  my_queue.enqueue("quarto");
+  my_queue.view_queue();
   return 0;
 }
