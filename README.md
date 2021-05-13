@@ -1,15 +1,19 @@
 # Data Structures by Gabriele Boccarusso
 
-This repository contains data structures from scratch in `python`, `C++` and `JavaScript` organized in their dedicated folders.
+This repository contains data structures from scratch mostly in `C++`, in the future the repo will be organized for data structure and when completed will be available data structures from scratch in:
+* `C++`
+* `JavaScript`
+* `Python`
+* `C#`
+* `Java`
 
 ## Notes
-
 As IDE I am using [replit](https://replit.com), where i have to  change the `run` button everytime I want to try a data structure in a different language. To configure the run button:
 * Python: `python <name>.py`
 * C++: `g++ <name>.cpp ; ./a.out`
 * JavaScript: `node <name>.js`
 
-## Short Documentation
+## Quick Documentation
 
 ### Arrays
 
@@ -66,13 +70,13 @@ Currently available in:
   - [ ] singly linked list
   - [ ] doubly linked list
 
-### stacks
+### Stacks
 In everyone of the dedicated folder there is a sub-folder named "stacks" with inside:
-* linked stacks (a stack Implemented with pointer)
+* linked stacks (a stack Implemented with pointers)
 * static stacks (a stack Implemented with an array)
-* dynamic stacks (a stack Implemented with an array that double its size when at end)
+* dynamic stacks (a stack Implemented with an array that double its size when at size limit)
 
-- [ ] C++
+- [X] C++
   - [X] linked stack
   - [X] static stack
   - [X] dynamic stack
@@ -84,3 +88,22 @@ In everyone of the dedicated folder there is a sub-folder named "stacks" with in
   - [ ] linked stack
   - [ ] static stack
   - [ ] dynamic stack
+
+### Queues
+In everyone of the dedicated folder there is a sub-folder named "queues" with inside:
+* linked queue(a queue Implemented with pointers)
+* static queue (a queue Implemented with an array)
+* dynamic queue (a queue Implemented with an array that double its size when at size limit)
+
+- [ ] C++
+  - [X] linked queue
+  - [ ] static queue
+  - [ ] dynamic queue
+- [ ] Python
+  - [ ] linked queue
+  - [ ] static queue
+  - [ ] dynamic queue
+- [ ] JavaScript
+  - [ ] linked queue
+  - [ ] static queue
+  - [ ] dynamic queue
