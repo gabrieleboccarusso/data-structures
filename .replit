@@ -1,5 +1,5 @@
 language = "undefined"
-run = "g++ C++/stacks/dynamic_stack.cpp; ./a.out"
+run = "g++ C++/queues/linked_queue.cpp; ./a.out"
 
 
 
