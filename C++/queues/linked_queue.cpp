@@ -2,6 +2,7 @@
 
 using std::cout;
 using std::endl;
+using std::string;
 
 template <class dtype>
 class linked_queue
@@ -39,19 +40,39 @@ class linked_queue
     {
       node * temp = new node;
       temp -> data = value;
-      plast -> next = temp;
-      plast = temp;
-      length++;
+
+      if(isEmpty())
+      {
+        pfirst = temp;
+        plast = temp;
+        length++;
+      }
+      else {
+        plast -> next = temp;
+        plast = temp;
+        length++;
+      }
 
       return length;
     }
 
     int dequeue()
-    {
-      node * item_after_first = pfirst -> next;
-      delete pfirst;
-      pfirst = item_after_first;
-      length--;
+    { 
+      if (isEmpty())
+        cout << "the queue is empty";
+      else
+      {
+        node * item_after_first = pfirst -> next;
+        delete pfirst;
+        pfirst = item_after_first;
+        length--;
+
+        if (length == 0)
+        {
+          pfirst = NULL;
+          plast = NULL;
+        }
+      }
 
       return length;
     }
@@ -59,10 +80,11 @@ class linked_queue
     void view_queue()
     {
       node * temp = pfirst;
-      int i;
+      int i = 0;
 
       while (temp != NULL)
       {
+        i++;
         cout << i << ": " << temp -> data << endl;
         temp = temp -> next; 
       }
@@ -76,16 +98,13 @@ class linked_queue
 
 int main()
 {
-  linked_queue<std::string> my_queue ("primo");
-  my_queue.enqueue("secondo");
-  my_queue.enqueue("terzo");
-  cout << "the queue:\n";
-  my_queue.view_queue();
-  cout << "now enqueued:\n";
+  linked_queue<string> my_queue ("ezio");
   my_queue.dequeue();
   my_queue.dequeue();
-  my_queue.enqueue("quarto");
+  cout << endl;
+  my_queue.enqueue("giovanni");
+  my_queue.enqueue("marco");
+  my_queue.dequeue();
   my_queue.view_queue();
-  cout << "last item: " << my_queue.peek();
   return 0;
 }
