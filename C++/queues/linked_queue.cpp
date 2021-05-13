@@ -67,6 +67,11 @@ class linked_queue
         temp = temp -> next; 
       }
     }
+
+    dtype peek()
+    {
+      return pfirst -> data;
+    }
 };
 
 int main()
@@ -81,5 +86,6 @@ int main()
   my_queue.dequeue();
   my_queue.enqueue("quarto");
   my_queue.view_queue();
+  cout << "last item: " << my_queue.peek();
   return 0;
 }
