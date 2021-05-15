@@ -91,19 +91,8 @@ In everyone of the dedicated folder there is a sub-folder named "stacks" with in
 
 ### Queues
 In everyone of the dedicated folder there is a sub-folder named "queues" with inside:
-* linked queue(a queue Implemented with pointers)
-* static queue (a queue Implemented with an array)
-* dynamic queue (a queue Implemented with an array that double its size when at size limit)
-
-- [ ] C++
-  - [X] linked queue
-  - [ ] static queue
-  - [ ] dynamic queue
+* implementation of the queue using pointers
+ 
+- [X] C++
 - [ ] Python
-  - [ ] linked queue
-  - [ ] static queue
-  - [ ] dynamic queue
 - [ ] JavaScript
-  - [ ] linked queue
-  - [ ] static queue
-  - [ ] dynamic queue
