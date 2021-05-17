@@ -73,15 +73,29 @@ class tree
       return;
     }
 
-    bool lookup(int number, node * ptr)
+    bool lookup(int number)
     {
-      found = false;
+     bool found = false;
      node * ptr = root;
 
-     while(!ptr)
+     while(ptr) // while ptr isn't NULL
      {
-       if ptr -> data == number
+       if (number == ptr -> data)
+        {
+          found = true;
+          ptr = NULL; // exit the loop
+        }
+      else if(number > ptr -> data)
+      {
+        ptr = ptr -> right;
+      }
+      else if(number < ptr -> data)
+      {
+        ptr = ptr -> left;
+      }
      }
+     return found;
+    }
 
     node * get_root()
     {
@@ -99,7 +113,7 @@ int main()
   my_tree.insert(15);
   my_tree.insert(170);
 
-  cout << my_tree.lookup(20, my_tree.get_root());
+  cout << my_tree.lookup(170);
 
   return 0;
 }
