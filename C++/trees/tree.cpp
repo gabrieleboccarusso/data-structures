@@ -5,7 +5,7 @@ using std::endl;
 
 class tree
 {
-  public:
+  private:
     struct node {
       int data;
       node * left;
@@ -14,7 +14,7 @@ class tree
     int height;
     node * root;
     node * ptr = root;
- // public:
+ public:
     // constructor
     tree (int value)
     {
@@ -69,10 +69,24 @@ class tree
           insert = true;
         }
       }
+
+      return;
     }
 
+    bool lookup(int number, node * ptr)
+    {
+      found = false;
+     node * ptr = root;
 
+     while(!ptr)
+     {
+       if ptr -> data == number
+     }
 
+    node * get_root()
+    {
+      return root;
+    }
 };
 
 int main()
@@ -84,6 +98,8 @@ int main()
   my_tree.insert(6);
   my_tree.insert(15);
   my_tree.insert(170);
+
+  cout << my_tree.lookup(20, my_tree.get_root());
 
   return 0;
 }
