@@ -91,8 +91,15 @@ In everyone of the dedicated folder there is a sub-folder named "stacks" with in
 
 ### Queues
 In everyone of the dedicated folder there is a sub-folder named "queues" with inside:
-* implementation of the queue using pointers
+* implementation of the queue
+* implementation of the queue using stacks
  
 - [X] C++
+  - [x] queue implementation
+  - [X] queue with stacks
 - [ ] Python
+  - [ ] queue implementation
+  - [ ] queue with stacks
 - [ ] JavaScript
+  - [ ] queue implementation
+  - [ ] queue with stacks
