@@ -25,7 +25,7 @@ class tree
     }
 
     // note: iterative insertion into a binary tree,
-    // may be more efficient using recursion
+    // may be more efficient/readable using recursion
     void insert (int number)
     {
       // beginning from the root node
@@ -60,12 +60,12 @@ class tree
           }
           else
           {
-            ptr = ptr -> right;
+            ptr = ptr -> left;
           }
         }
         else 
         {
-          cout << "the number os already in the tree\n or unknown error";
+          cout << "the number is already in the tree\n or unknown error";
           insert = true;
         }
       }
@@ -77,14 +77,13 @@ class tree
 
 int main()
 {
-  tree my_tree(50);
-  my_tree.insert(65);
-  my_tree.insert(45);
-  my_tree.insert(86);
-
-  cout << "level 1, left node:" << my_tree.root -> left -> data;
-  cout << endl;
-  cout << "level 1, right node: " << my_tree.root -> right -> data;
+  tree my_tree(9);
+  my_tree.insert(4);
+  my_tree.insert(20);
+  my_tree.insert(1);
+  my_tree.insert(6);
+  my_tree.insert(15);
+  my_tree.insert(170);
 
   return 0;
 }
