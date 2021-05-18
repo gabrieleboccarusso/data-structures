@@ -103,6 +103,20 @@ class tree
     {
       return root;
     }
+
+    void delete_node(int number)
+    {
+      node * node_to_del = lookup(number);
+      if (!(node_to_del -> right) && !(node_to_del -> left))
+      {
+        //cout << " this node has not children";
+        delete node_to_del;
+        node_to_del = NULL;
+      }
+      else{
+        cout << "it has children";
+      }
+    }
 };
 
 int main()
@@ -115,7 +129,17 @@ int main()
   my_tree.insert(15);
   my_tree.insert(170);
 
-  cout << my_tree.lookup(170) -> data;
+  my_tree.delete_node(170);
+  // if we try this operation on a non-existent node 
+  // it will give a segmentation error
+  if(my_tree.lookup(170))
+  {
+    cout << "the node exist";
+  }
+  else
+  {
+    cout << "the node doesn't exists";
+  }
 
   return 0;
 }
