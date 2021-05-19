@@ -78,7 +78,7 @@ class tree
       return root;
     }
 
-    // the lookup method return a pointer 
+    // the lookup method returns a pointer 
     //to the node and takes three arguments
     // * the number to search in the tree
     // the node to begin with
@@ -144,25 +144,38 @@ class tree
      return ret_ptr;
     }
 
-    void delete_node(int number)
-    { // incomplete attempt at the method that delete a node
-      node * node_to_delete = lookup(number, "father");
+    void remove(int number)
+    { // incomplete attempt at the method that delete a node, for now on a fixed case
+      node * father = lookup(number, "father");
+      node * to_remove;
 
-      cout << "this is the father: " << node_to_delete -> data;
+      if (father -> left -> data == number)
+      {
+        to_remove = father -> left;
+        father -> left = to_remove -> right;
+        father -> left -> left = to_remove -> left;
+        delete to_remove;
+      }
+      else 
+      {
+        to_remove = father -> right;
+      }
+      return;
     }
 };
 
 int main()
 {
-  tree my_tree(9);
-  my_tree.insert(4);
-  my_tree.insert(20);
-  my_tree.insert(1);
-  my_tree.insert(6);
-  my_tree.insert(15);
-  my_tree.insert(170);
+  tree my_tree(50);
+  my_tree.insert(60);
+  my_tree.insert(40);
+  my_tree.insert(30);
+  my_tree.insert(49);
 
-  my_tree.delete_node(4);
+  my_tree.remove(40);
+  cout << my_tree.get_root() -> data << endl;
+  cout << my_tree.get_root() -> left -> data << endl;
+  cout << my_tree.get_root() -> left -> left -> data <<endl;
 
   return 0;
 }
