@@ -146,19 +146,28 @@ class tree
 
     void remove(int number)
     { // incomplete attempt at the method that delete a node, for now on a fixed case
-      node * father = lookup(number, "father");
-      node * to_remove;
+      node * parent = lookup(number, "father");
+      node * current;
+      
+      // getting the child this way is faster than
+      // calling again the lookup function
+      if (number == parent -> right -> data)
+        current = parent -> right;
+      else
+        current = parent -> left;
 
-      if (father -> left -> data == number)
+      // if the current node hasn't a right child
+      if (current -> right == NULL)
       {
-        to_remove = father -> left;
-        father -> left = to_remove -> right;
-        father -> left -> left = to_remove -> left;
-        delete to_remove;
-      }
-      else 
-      {
-        to_remove = father -> right;
+        if (parent -> data < current -> data)
+        {
+          parent -> left = current -> left;
+          delete current;
+        }
+        else if (parent -> data > current -> data)
+        {
+          parent -> right = current -> left;
+        }
       }
       return;
     }
@@ -172,10 +181,7 @@ int main()
   my_tree.insert(30);
   my_tree.insert(49);
 
-  my_tree.remove(40);
-  cout << my_tree.get_root() -> data << endl;
-  cout << my_tree.get_root() -> left -> data << endl;
-  cout << my_tree.get_root() -> left -> left -> data <<endl;
+ my_tree.lookup(50);
 
   return 0;
 }
