@@ -151,24 +151,25 @@ class tree
       
       // getting the child this way is faster than
       // calling again the lookup function
-      if (number == parent -> right -> data)
-        current = parent -> right;
-      else
-        current = parent -> left;
-
-      // if the current node hasn't a right child
-      if (current -> right == NULL)
+      if (parent -> right && parent -> right -> data == number)
       {
-        if (parent -> data < current -> data)
-        {
-          parent -> left = current -> left;
-          delete current;
-        }
-        else if (parent -> data > current -> data)
-        {
-          parent -> right = current -> left;
-        }
+        current = parent -> right;
       }
+      else if (parent -> left && parent -> left -> data == number)
+      {
+        current = parent -> left;
+      }
+
+      // if the node to delete is a leaf
+      if (!current -> right && !current -> left)
+      {
+        if (parent -> right == current)
+         parent -> right = NULL;
+        else parent -> left = NULL;
+
+        delete current;
+      }
+
       return;
     }
 };
@@ -176,12 +177,15 @@ class tree
 int main()
 {
   tree my_tree(50);
-  my_tree.insert(60);
   my_tree.insert(40);
   my_tree.insert(30);
-  my_tree.insert(49);
+  my_tree.insert(25);
+  my_tree.insert(15);
 
- my_tree.lookup(50);
+  my_tree.remove(15);
+  if (my_tree.lookup(15) == NULL)
+    cout << "b";
+ 
 
   return 0;
 }
