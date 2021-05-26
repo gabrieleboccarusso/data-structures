@@ -8,9 +8,9 @@ void swap(int *n1, int *n2);
 int main()
 {
 
-  int arr[] = {8, 3, 2, 1, 2 ,9 , 4, 0};
+  int arr[] = {10, 9, 8, 5, 8, 3, 8, 2, 5 ,6 ,78, 45 , 1};
 
-  bubble(arr, 8);
+  bubble(arr, 13);
 
   return 0;
 }
@@ -21,7 +21,6 @@ void bubble(int arr[], int size)
   int i;
   bool swapped = true;
 
-  //for (i = 1; i < size ; i++)
   while (swapped)
   {
       swapped = false;
