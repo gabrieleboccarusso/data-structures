@@ -3,13 +3,14 @@
 using std::cout;
 
 void bubble(int arr[], int size);
+void swap(int *n1, int *n2);
 
 int main()
 {
 
-  int arr[] = {3, 2, 1};
+  int arr[] = {8, 3, 2, 1, 2 ,9 , 4, 0};
 
-  bubble(arr, 3);
+  bubble(arr, 8);
 
   return 0;
 }
@@ -18,25 +19,35 @@ int main()
 void bubble(int arr[], int size)
 {
   int i;
-  int swap;
+  bool swapped = true;
 
-  for (i = 0; i < size; i++)
+  //for (i = 1; i < size ; i++)
+  while (swapped)
   {
-    if (arr[i+1]) 
-    {
-      if (arr[i] > arr[i+1]) 
+      swapped = false;
+      for (i = 1; i < size; i++)
       {
-        swap = arr[i];
-        arr[i] = arr[i + 1];
-        arr[i + 1] = swap;
+        if (arr[i - 1] > arr[i]) 
+        {
+          swap(&arr[i-1], &arr[i]);
+          swapped = true;
+        }
       }
-    }
   }
 
   for(i = 0; i < size; i++)
   {
     cout << arr[i] << " ";
   }
+
+  return;
+}
+
+void swap(int *n1, int *n2)
+{
+  int swap = *n1;
+  *n1 = *n2;
+  *n2 = swap;
 
   return;
 }
