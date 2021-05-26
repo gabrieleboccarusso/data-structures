@@ -1,5 +1,5 @@
 language = "undefined"
-run = "g++ algorithms/C++/sorting/bubble_sort.cpp; ./a.out"
+run = "g++ algorithms/C++/sorting/selection_sort.cpp; ./a.out"
 
 
 
