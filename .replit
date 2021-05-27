@@ -1,5 +1,5 @@
 language = "undefined"
-run = "g++ algorithms/C++/sorting/merge_sort.cpp; ./a.out"
+run = "g++ algorithms/C++/sorting/quick_sort.cpp; ./a.out"
 
 
 
