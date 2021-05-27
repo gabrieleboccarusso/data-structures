@@ -8,14 +8,14 @@ void selection_sort(int arr[], int size);
 int main()
 {
   int arr[] = {1, 8, 3, 2};
-  int arr2[] = {8,3,2,1, 4};
-  int size = 5;
+  int arr2[] = {78, 56, 89, 23, 45, 89, 1, 56, 12, 89};
+  int size = 10;
 
   selection_sort(arr2, size);
 
   for(int i = 0; i < size; i++)
   {
-    cout << arr[i] << " ";
+    cout << arr2[i] << " ";
   }
 
   return 0;
