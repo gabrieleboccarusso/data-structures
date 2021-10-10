@@ -1,5 +1,0 @@
-language = "undefined"
-run = "g++ algorithms/C++/sorting/quick_sort.cpp; ./a.out"
-
-
-
